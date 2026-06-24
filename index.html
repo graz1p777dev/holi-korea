@@ -320,20 +320,36 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4,1fr);
-      grid-template-rows: repeat(2, 200px);
+      grid-template-rows: repeat(2, 220px);
       gap: 12px;
     }
-    @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(3,200px); } }
+    @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(3,220px); } }
     @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
     .gallery-item {
       border-radius: var(--r-md); overflow: hidden;
-      position: relative; cursor: pointer; transition: all 220ms ease;
+      position: relative; cursor: pointer; transition: all 250ms ease;
     }
-    .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); z-index: 1; }
+    .gallery-item:hover { transform: scale(1.025); box-shadow: var(--shadow-lg); z-index: 1; }
+    .gallery-item:hover .gi-overlay { opacity: 1; }
     .gallery-item.span-2 { grid-column: span 2; }
     .gallery-item.tall   { grid-row: span 2; }
+    .gi-photo {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform 400ms ease;
+    }
+    .gallery-item:hover .gi-photo { transform: scale(1.06); }
+    .gi-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,24,20,.72) 0%, rgba(26,24,20,.12) 50%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 18px 16px; opacity: 0; transition: opacity 250ms ease;
+    }
+    .gi-overlay p   { font-size: 13px; font-weight: 600; color: #fff; line-height: 1.4; }
+    .gi-overlay span{ font-size: 11px; color: rgba(255,255,255,.65); margin-top: 3px; }
+    /* always-on label for span-2 / tall items */
+    .gallery-item.always-label .gi-overlay { opacity: 1; }
     .gi-bg {
-      width: 100%; height: 100%; min-height: 200px;
+      width: 100%; height: 100%; min-height: 220px;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 12px;
       padding: 20px; text-align: center;
@@ -995,43 +1011,75 @@
     </div>
 
     <div class="gallery-grid reveal">
-      <div class="gallery-item span-2">
-        <div class="gi-bg" style="background:linear-gradient(145deg,#F9D9E3,#ECC0CF);min-height:200px;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C24B6A" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+
+      <!-- Полки склада — wide -->
+      <div class="gallery-item span-2 always-label" style="background:#F0E8EF;">
+        <img
+          class="gi-photo"
+          src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&h=440&fit=crop&q=85"
+          alt="Полки с корейской косметикой на складе HOLI KOREA"
+          loading="lazy"
+        />
+        <div class="gi-overlay">
           <p>Полки с продукцией корейских брендов</p>
-          <span style="font-size:11px;color:var(--ink-50);">Склад HOLI KOREA · Бишкек</span>
+          <span>Склад HOLI KOREA · Бишкек</span>
         </div>
       </div>
 
-      <div class="gallery-item tall">
-        <div class="gi-bg" style="background:linear-gradient(145deg,#E3DEFF,#C8C0F0);min-height:412px;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7B68C8" stroke-width="1.5" aria-hidden="true"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+      <!-- Упаковка — tall -->
+      <div class="gallery-item tall always-label" style="background:#E8E5F0;">
+        <img
+          class="gi-photo"
+          src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500&h=460&fit=crop&q=85"
+          alt="Коробки с товаром готовы к отправке"
+          loading="lazy"
+        />
+        <div class="gi-overlay">
           <p>Коробки с товаром готовы к отправке</p>
-          <span style="font-size:11px;color:var(--ink-50);">Упаковка и доставка</span>
+          <span>Упаковка и доставка</span>
         </div>
       </div>
 
-      <div class="gallery-item">
-        <div class="gi-bg" style="background:linear-gradient(145deg,#D5EEF0,#B5E0DE);min-height:200px;">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3FBDB5" stroke-width="1.5" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      <!-- Популярные позиции -->
+      <div class="gallery-item" style="background:#E5EFF0;">
+        <img
+          class="gi-photo"
+          src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&h=220&fit=crop&q=85"
+          alt="Популярные позиции корейской косметики"
+          loading="lazy"
+        />
+        <div class="gi-overlay">
           <p>Популярные позиции</p>
         </div>
       </div>
 
-      <div class="gallery-item">
-        <div class="gi-bg" style="background:linear-gradient(145deg,#D8F5E4,#BBECD0);min-height:200px;">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <!-- Новинки -->
+      <div class="gallery-item" style="background:#E8F0E8;">
+        <img
+          class="gi-photo"
+          src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&h=220&fit=crop&q=85"
+          alt="Новинки корейского рынка косметики"
+          loading="lazy"
+        />
+        <div class="gi-overlay">
           <p>Новинки корейского рынка</p>
         </div>
       </div>
 
-      <div class="gallery-item span-2">
-        <div class="gi-bg" style="background:linear-gradient(145deg,#FEF0E8,#FBDCC9);min-height:200px;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#E67E22" stroke-width="1.5" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <!-- Команда — wide -->
+      <div class="gallery-item span-2 always-label" style="background:#F0EDE8;">
+        <img
+          class="gi-photo"
+          src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=900&h=440&fit=crop&q=85"
+          alt="Команда менеджеров HOLI KOREA"
+          loading="lazy"
+        />
+        <div class="gi-overlay">
           <p>Наша команда готова помочь с подбором</p>
-          <span style="font-size:11px;color:var(--ink-50);">Менеджеры HOLI KOREA</span>
+          <span>Менеджеры HOLI KOREA</span>
         </div>
       </div>
+
     </div>
 
     <p style="text-align:center;margin-top:24px;font-size:13px;color:var(--ink-50);">
