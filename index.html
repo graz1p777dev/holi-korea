@@ -457,6 +457,64 @@
     .reveal-delay-5 { transition-delay: 400ms; }
     .reveal-delay-6 { transition-delay: 480ms; }
 
+    /* ── Step info pills ── */
+    .step-info-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1.5px solid rgba(255,255,255,.3);
+      font-size: 14px; color: rgba(255,255,255,.9); font-weight: 500;
+    }
+    .step-info-pill strong { color: #fff; }
+
+    /* ── Map section ── */
+    #location { background: var(--white); }
+    .location-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; align-items: start;
+    }
+    @media (max-width: 768px) { .location-grid { grid-template-columns: 1fr; } }
+    .map-wrap {
+      border-radius: var(--r-lg); overflow: hidden;
+      box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+      aspect-ratio: 4/3;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; display: block; border: 0; }
+    .location-info { display: flex; flex-direction: column; gap: 24px; }
+    .loc-block h3 { font-size: 17px; margin-bottom: 10px; color: var(--ink); }
+    .loc-block p  { font-size: 15px; color: var(--ink-80); line-height: 1.6; }
+    .loc-address {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--r-md); padding: 20px 22px;
+    }
+    .loc-address-icon {
+      width: 44px; height: 44px; border-radius: 12px; background: var(--berry-pale);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+    }
+    .loc-address-text h4 { font-size: 14px; color: var(--ink-50); font-weight: 500; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .05em; }
+    .loc-address-text p  { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.5; }
+    .loc-hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .loc-hour-card {
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--r-sm); padding: 14px 16px;
+    }
+    .loc-hour-label { font-size: 12px; color: var(--ink-50); font-weight: 500; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .04em; }
+    .loc-hour-val   { font-size: 15px; font-weight: 700; color: var(--ink); }
+    .catalog-card {
+      background: linear-gradient(135deg, var(--berry-pale), #F5E8EF);
+      border: 1.5px solid var(--berry-light);
+      border-radius: var(--r-md); padding: 22px 24px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .catalog-card-icon {
+      width: 48px; height: 48px; border-radius: 12px; background: var(--berry);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .catalog-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .catalog-card p  { font-size: 13px; color: var(--ink-50); margin-bottom: 12px; }
+    .catalog-card a.btn { padding: 9px 18px; font-size: 13px; }
+
     /* ── Nav contact btn ── */
     .nav-contact-btn {
       display: inline-flex; align-items: center; gap: 7px;
@@ -902,35 +960,55 @@
 <section id="steps">
   <div class="container">
     <div class="section-header reveal">
-      <h2>Как начать<br/>сотрудничество</h2>
-      <p>Просто и быстро — от заявки до первой партии товаров</p>
+      <h2>Как оформить заказ</h2>
+      <p>Просто и быстро — от выбора товаров до доставки прямо к вам</p>
     </div>
 
     <div class="steps-row">
       <div class="step-item reveal reveal-delay-1">
         <div class="step-num">1</div>
-        <h3>Оставьте заявку</h3>
-        <p>Напишите нам в WhatsApp, Telegram или Instagram — менеджер ответит в течение часа</p>
+        <h3>Укажите данные</h3>
+        <p>При заявке укажите: имя, город, магазин (Instagram) и список нужных товаров</p>
       </div>
       <div class="step-item reveal reveal-delay-2">
         <div class="step-num">2</div>
-        <h3>Получите прайс</h3>
-        <p>Вышлем актуальный оптовый прайс с ценами, наличием и минимальными объёмами</p>
+        <h3>Выберите товары</h3>
+        <p>Откройте каталог и выберите позиции. Отправьте заявку нам в WhatsApp</p>
       </div>
       <div class="step-item reveal reveal-delay-3">
         <div class="step-num">3</div>
-        <h3>Подберите товары</h3>
-        <p>Менеджер поможет составить ассортимент под ваш формат, бюджет и целевую аудиторию</p>
+        <h3>Оплатите заказ</h3>
+        <p>Получите подтверждение и оплатите 100% заказа — Mbank, Optima или Золотая корона</p>
       </div>
       <div class="step-item reveal reveal-delay-4">
         <div class="step-num">4</div>
-        <h3>Оформите заказ</h3>
-        <p>Согласуем условия, оплату и упакуем ваш заказ на нашем складе в Бишкеке</p>
+        <h3>Получите доставку</h3>
+        <p>Мы организуем доставку. Укажите адрес и номер телефона — привезём по КГ и СНГ</p>
       </div>
-      <div class="step-item reveal reveal-delay-5">
-        <div class="step-num">5</div>
-        <h3>Получите товар</h3>
-        <p>Доставляем по Кыргызстану и СНГ. Самовывоз тоже доступен</p>
+    </div>
+
+    <!-- Catalog CTA -->
+    <div class="steps-catalog reveal" style="margin-top:52px;text-align:center;">
+      <a href="https://b2b.moysklad.ru/public/jL4aBdhiXQvt/catalog" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white btn-lg" style="border-color:rgba(255,255,255,.5);font-size:15px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        Открыть онлайн-каталог и выбрать товары
+      </a>
+      <p style="margin-top:14px;font-size:13px;color:rgba(255,255,255,.6);">Работаем с магазинами · Instagram-магазинами · Маркетплейсами · Офлайн-точками</p>
+    </div>
+
+    <!-- Min order & geography pills -->
+    <div class="steps-info reveal" style="margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <div class="step-info-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+        <span>Кыргызстан — от <strong>$200</strong></span>
+      </div>
+      <div class="step-info-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        <span>СНГ и Россия — от <strong>$500</strong></span>
+      </div>
+      <div class="step-info-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <span>Оплата: Mbank · Optima · Золотая корона</span>
       </div>
     </div>
   </div>
@@ -1214,7 +1292,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="faq-a" role="region">
-          <div class="faq-a-inner">Да, для оптовых поставок действует минимальная сумма заказа. Уточнить актуальные условия можно у менеджера — мы стараемся быть гибкими, особенно для новых клиентов.</div>
+          <div class="faq-a-inner">Да. Для Кыргызстана — от <strong>$200</strong>, для других стран СНГ и России — от <strong>$500</strong>. Оплата 100% при оформлении заказа: Mbank, Optima или Золотая корона.</div>
         </div>
       </div>
 
@@ -1224,7 +1302,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="faq-a" role="region">
-          <div class="faq-a-inner">Мы работаем по Кыргызстану (доставка и самовывоз в Бишкеке), а также отправляем в Казахстан, Россию, Узбекистан, Таджикистан и другие страны СНГ. Уточните условия у менеджера.</div>
+          <div class="faq-a-inner">Работаем по всему Кыргызстану (самовывоз с р-к Джунхай, стоянка Терминал, 7-8 контейнер, Бишкек) и организуем доставку по странам СНГ и России. Минимальный заказ для СНГ/РФ — от $500.</div>
         </div>
       </div>
 
@@ -1261,6 +1339,95 @@
   </div>
 </section>
 
+<!-- ─── LOCATION ─── -->
+<section id="location">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="badge badge-pink" style="margin-bottom:14px;">Где нас найти</span>
+      <h2>Наш склад в Бишкеке</h2>
+      <p>Приезжайте — посмотрите товар вживую, заберёте самовывозом</p>
+    </div>
+
+    <div class="location-grid">
+      <!-- Map -->
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://maps.google.com/maps?q=%D0%B4%D0%B6%D1%83%D0%BD%D1%85%D0%B0%D0%B9+%D1%80%D1%8B%D0%BD%D0%BE%D0%BA+%D0%91%D0%B8%D1%88%D0%BA%D0%B5%D0%BA&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="HOLI KOREA на карте — р-к Джунхай, Бишкек"
+        ></iframe>
+      </div>
+
+      <!-- Info -->
+      <div class="location-info reveal reveal-delay-2">
+
+        <div class="loc-address">
+          <div class="loc-address-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C24B6A" stroke-width="2" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+          </div>
+          <div class="loc-address-text">
+            <h4>Адрес</h4>
+            <p>р-к Джунхай, стоянка Терминал<br/>7-8 контейнер<br/>Бишкек, Кыргызстан 720001</p>
+          </div>
+        </div>
+
+        <div class="loc-hours-grid">
+          <div class="loc-hour-card">
+            <div class="loc-hour-label">Самовывоз</div>
+            <div class="loc-hour-val">Ежедневно</div>
+          </div>
+          <div class="loc-hour-card">
+            <div class="loc-hour-label">Минимальный заказ КГ</div>
+            <div class="loc-hour-val" style="color:var(--berry);">от $200</div>
+          </div>
+          <div class="loc-hour-card">
+            <div class="loc-hour-label">Доставка по СНГ/РФ</div>
+            <div class="loc-hour-val">Организуем</div>
+          </div>
+          <div class="loc-hour-card">
+            <div class="loc-hour-label">Минимальный заказ СНГ</div>
+            <div class="loc-hour-val" style="color:var(--berry);">от $500</div>
+          </div>
+        </div>
+
+        <div class="catalog-card">
+          <div class="catalog-card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <div style="flex:1;">
+            <h4>Онлайн-каталог товаров</h4>
+            <p>Выберите позиции и отправьте список в WhatsApp</p>
+            <a href="https://b2b.moysklad.ru/public/jL4aBdhiXQvt/catalog" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Открыть каталог
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://wa.me/996559996969" target="_blank" rel="noopener noreferrer" class="cta-social-btn wa" style="font-size:13px;padding:11px 18px;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.122 1.524 5.856L.057 23.272a.75.75 0 00.92.92l5.416-1.467A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.96 9.96 0 01-5.06-1.377l-.361-.214-3.741 1.013 1.013-3.741-.214-.361A9.96 9.96 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://t.me/holikorea" target="_blank" rel="noopener noreferrer" class="cta-social-btn tg" style="font-size:13px;padding:11px 18px;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Telegram
+          </a>
+          <a href="https://www.instagram.com/holi.korea/" target="_blank" rel="noopener noreferrer" class="cta-social-btn ig" style="font-size:13px;padding:11px 18px;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- ─── CTA FINAL ─── -->
 <section id="cta">
   <div class="container">
@@ -1274,9 +1441,13 @@
       <p class="reveal reveal-delay-1">Оставьте заявку — менеджер свяжется с вами и поможет подобрать товары для вашего бизнеса.</p>
 
       <div class="cta-btns reveal reveal-delay-2">
-        <a href="https://wa.me/996559996969" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.3);">
+        <a href="https://wa.me/996559996969" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:var(--berry);color:#fff;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           Получить оптовый прайс
+        </a>
+        <a href="https://b2b.moysklad.ru/public/jL4aBdhiXQvt/catalog" target="_blank" rel="noopener noreferrer" class="btn btn-lg" style="background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          Открыть каталог
         </a>
       </div>
 
